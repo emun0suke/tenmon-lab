@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://emun0suke.github.io/tenmon-lab/sitemap.xml
