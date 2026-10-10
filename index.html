@@ -1,0 +1,708 @@
+<title>天文研究所</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Serif+JP:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="app.css">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="天文研究所 トップへ">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12.5" fill="none" stroke="var(--brass)" stroke-width="1.2"/><ellipse cx="14" cy="14" rx="12.5" ry="4.5" fill="none" stroke="var(--brass)" stroke-width="1" transform="rotate(-24 14 14)"/><circle cx="14" cy="14" r="2.6" fill="var(--sun)"/></svg>
+      <span><b>天文研究所</b><br><small>OBSERVATORIUM</small></span>
+    </a>
+    <nav class="nav" aria-label="館内">
+      <a href="#history"><span>1F</span>歴史館</a>
+      <a href="#views"><span>2F</span>視点の部屋</a>
+      <a href="#sky"><span>3F</span>星空</a>
+      <a href="#moon"><span>4F</span>月と暦</a>
+      <a href="#study"><span>5F</span>学びの階段</a>
+      <a href="#cosmos"><span>6F</span>宇宙の年表</a>
+      <a href="#near"><span>7F</span>近くの星</a>
+      <a href="#shelf"><span>8F</span>本棚</a>
+      <a href="#trivia"><span>9F</span>豆知識</a>
+      <a href="#news"><span>掲</span>掲示板</a>
+      <a href="#gallery"><span>RF</span>ギャラリー</a>
+      <a href="#support"><span>受</span>受付</a>
+    </nav>
+    <button class="btn rec-open" id="recOpenTop" type="button">録画モード</button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-txt">
+      <div class="plate">OBSERVATORIUM · 天文研究所</div>
+      <h1>「なぜ火星は、<em>後ろへ歩くのか</em>」</h1>
+      <p class="lead" id="heroLead">天才たちが1500年、解けなかった謎。<br>答えは、この軌跡の中にある。</p>
+      <dl class="hero-ro" aria-live="polite">
+        <div><dt>TARGET</dt><dd id="roName">—</dd></div>
+        <div><dt>DISTANCE</dt><dd id="roDist">—</dd></div>
+        <div><dt>MOTION</dt><dd id="roMotion">—</dd></div>
+      </dl>
+      <div class="hero-go"><a class="btn solid" href="#history">答え合わせをはじめる <span aria-hidden="true">→</span></a><button class="linkbtn" id="recOpenHero" type="button">録画モード</button></div>
+    </div>
+    <figure class="hero-fig">
+      <canvas class="hero-cv" id="heroCv" aria-label="地球から見た惑星の動きの軌跡"></canvas>
+      <div class="hero-tabs" id="heroChips" role="group" aria-label="惑星を選ぶ"></div>
+      <figcaption class="hero-cap"><span>地球から見た軌跡</span><span class="num" id="heroYears">0.0 年</span><span id="heroCap" hidden></span></figcaption>
+    </figure>
+  </div>
+  <div class="wrap hero-foot"><div class="today" aria-label="今日の空">
+    <div class="t"><canvas id="todayMoon" width="34" height="34" style="width:22px;height:22px" aria-hidden="true"></canvas><span>月齢</span><b id="todayAge">—</b></div>
+    <div class="t"><span id="todayNextLb">次の満月</span><b id="todayNext">—</b></div>
+    <div class="t"><span>次の流星群</span><b id="todayMeteor">—</b></div>
+    <p class="hero-src">図と数値は、NASAの軌道データをもとに円軌道で近似した計算です。</p>
+  </div></div>
+</section>
+
+<nav class="dir" aria-label="館内案内">
+  <div class="wrap">
+    <ol>
+      <li><a href="#history"><span class="fl">1F</span><span class="nm">歴史館</span><span class="ds">6人の主張と反論</span></a></li>
+      <li><a href="#views"><span class="fl">2F</span><span class="nm">視点の部屋</span><span class="ds">どの星を中心に見るか</span></a></li>
+      <li><a href="#sky"><span class="fl">3F</span><span class="nm">星空の部屋</span><span class="ds">今夜の星座と物語</span></a></li>
+      <li><a href="#moon"><span class="fl">4F</span><span class="nm">月と暦</span><span class="ds">満ち欠けと流星群</span></a></li>
+      <li><a href="#study"><span class="fl">5F</span><span class="nm">学びの階段</span><span class="ds">中学〜大学受験</span></a></li>
+      <li><a href="#cosmos"><span class="fl">6F</span><span class="nm">宇宙の年表</span><span class="ds">ビッグバンから未来へ</span></a></li>
+      <li><a href="#near"><span class="fl">7F</span><span class="nm">近くの星</span><span class="ds">10光年の地図</span></a></li>
+      <li><a href="#shelf"><span class="fl">8F</span><span class="nm">宇宙の本棚</span><span class="ds">漫画・アニメ・映画</span></a></li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ================= 1F ================= -->
+<section class="floor" id="history">
+  <div class="wrap">
+    <div class="floor-head">
+      <span class="floor-no">1F</span>
+      <div><div class="plate">HISTORIA</div><h2>歴史館</h2><p>宇宙の中心は、地球か、太陽か。1500年の論争を、動く図で。</p></div>
+    </div>
+    <div class="guide"><span class="mascot-svg" data-pose="howa"></span><div class="bubble">ようこそ、天文研究所へ！ぼくが案内するよ。まずは1Fから。宇宙のまんなかはどこなのか…1500年も続いた大論争を、一緒にたどってみよう！</div></div>
+
+    <!-- Ptolemy -->
+    <article class="room" id="ptolemy">
+      <div class="room-head">
+        <div><span class="year">150頃</span><h3>プトレマイオス</h3><p class="who">クラウディオス・プトレマイオス（アレクサンドリア）　『アルマゲスト』</p></div>
+        <figure class="portrait"><img src="img/s_ptolemy.webp" alt="プトレマイオスの肖像イラスト" width="400" height="500" loading="lazy"></figure>
+      </div>
+      <div class="cols">
+        <div class="read">
+          <div><span class="k">主張</span><h4>地球は宇宙の中心で動かない。惑星は、円の上を回る円に乗っている。</h4></div>
+          <p>惑星は「従円」という大きな円の上を回る小さな円「周転円」の上を動きます。2つの回転を重ねると、惑星は地球から見てときどき後ろへ戻ります。これが逆行の説明でした。</p>
+          <div class="debate">
+            <div class="ob"><span class="lb">当時の反論</span><span>紀元前3世紀、サモスのアリスタルコスは、太陽を中心に地球が回る宇宙をすでに考えていました。</span></div>
+            <div class="re"><span class="lb">答え</span><span>地球が動くなら、空の鳥や雲は取り残されるはず。恒星の見える位置も1年でずれるはずなのに、ずれは見えない。</span></div>
+            <div class="ve"><span class="lb">決着</span><span>当時の観測とは矛盾しない判断でした。この体系は約1400年、暦や航海の計算に使われ続けます。</span></div>
+          </div>
+          <p class="note">実際のモデルには、従円の中心を地球からずらす「離心円」と、速さの基準点「エカント」もありました。右の図は周転円の効果だけを取り出しています。</p>
+          <div class="find"><span class="k">計算からわかること</span>外惑星の周転円はいつも太陽の方向を向いて回り、その大きさの比は「地球の軌道 ÷ 惑星の軌道」とほぼ同じです。プトレマイオスは知らないうちに、地球の公転を周転円として書き込んでいました。</div>
+        </div>
+        <div class="figs">
+          <div class="panel">
+            <h4>周転円で逆行をつくる</h4>
+            <canvas class="cv sq" id="ptoCv" aria-label="従円と周転円の動き"></canvas>
+            <div class="chips" id="ptoChips" role="group" aria-label="惑星"></div>
+            <div class="row"><label class="rng" for="ptoRatio">周転円の大きさ（従円を1として）<input id="ptoRatio" type="range" min="0" max="1" step="0.001" value="0.6583"></label><button class="btn" id="ptoReset" type="button">アルマゲストの値</button></div>
+            <div class="readout"><span>比 <b id="ptoR">0.658</b></span><span>経過 <b id="ptoT">0.0 年</b></span><span id="ptoState" class="pill">順行</span></div>
+            <p class="sub">周転円を小さくしていくと、ある大きさで逆行のループが消えます。点線は太陽への方向で、周転円の半径といつも平行です。</p>
+          </div>
+          <div class="panel">
+            <h4>周転円の大きさを現代の値と比べる</h4>
+            <div class="tblw"><table>
+              <thead><tr><th>惑星</th><th>アルマゲスト（従円＝60）</th><th>比</th><th>現代の値</th><th>何の比か</th></tr></thead>
+              <tbody>
+                <tr><td>水星</td><td class="d">22;30</td><td class="d">0.375</td><td class="d hi">0.387</td><td>惑星 ÷ 地球の軌道</td></tr>
+                <tr><td>金星</td><td class="d">43;10</td><td class="d">0.719</td><td class="d hi">0.723</td><td>惑星 ÷ 地球の軌道</td></tr>
+                <tr><td>火星</td><td class="d">39;30</td><td class="d">0.658</td><td class="d hi">0.656</td><td>地球 ÷ 惑星の軌道</td></tr>
+                <tr><td>木星</td><td class="d">11;30</td><td class="d">0.192</td><td class="d hi">0.192</td><td>地球 ÷ 惑星の軌道</td></tr>
+                <tr><td>土星</td><td class="d">6;30</td><td class="d">0.108</td><td class="d hi">0.105</td><td>地球 ÷ 惑星の軌道</td></tr>
+              </tbody>
+            </table></div>
+            <p class="sub">「39;30」は60進法で 39 + 30/60 = 39.5。比は 39.5 ÷ 60 ≒ 0.658。現代の値は軌道半径（天文単位）から計算。</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Copernicus -->
+    <article class="room" id="copernicus">
+      <div class="room-head">
+        <div><span class="year">1543</span><h3>コペルニクス</h3><p class="who">ニコラウス・コペルニクス（ポーランド）　『天球回転論』</p></div>
+        <figure class="portrait"><img src="img/s_copernicus.webp" alt="コペルニクスの肖像イラスト" width="400" height="500" loading="lazy"></figure>
+      </div>
+      <div class="cols">
+        <div class="read">
+          <div><span class="k">主張</span><h4>中心にあるのは太陽。地球も惑星の一つとして太陽を回り、1日に1回自転している。</h4></div>
+          <p>内側を速く回る地球が外側の火星を追い越すとき、火星は後ろへ下がって見えます。逆行は「地球が動いていることの見え方」になりました。さらに、惑星の太陽からの距離を地球との比で計算できるようになりました。</p>
+          <div class="debate">
+            <div class="ob"><span class="lb">当時の反論</span><span>地球が公転しているなら、恒星の見える位置が1年でずれるはず（年周視差）。高い塔から落とした石は、地球が動く分だけ西にずれるはず。</span></div>
+            <div class="re"><span class="lb">答え</span><span>恒星は想像できないほど遠く、ずれが小さすぎて見えない。空気も落ちる石も、地球と一緒に動いている。</span></div>
+            <div class="ve"><span class="lb">決着</span><span>地球の公転の最初の観測的な証拠は1729年、ブラッドリーの「光行差」。年周視差が実際に測られたのは1838年、ベッセルによってです。</span></div>
+          </div>
+          <p class="note">コペルニクスも円の組み合わせを使い、小さな周転円を残していました。予報の精度はプトレマイオスと大きくは変わりませんでした。</p>
+          <div class="find"><span class="k">計算からわかること</span>見かけの周期（会合周期）と地球の1年から、惑星が太陽を1周する本当の周期が計算で出せます。</div>
+        </div>
+        <div class="figs">
+          <div class="panel">
+            <h4>計算1 · 会合周期から公転周期を出す</h4>
+            <div class="chips" id="synChips" role="group" aria-label="惑星"></div>
+            <div class="calc">
+              <label for="synIn">会合周期（日）</label><input id="synIn" type="number" inputmode="decimal" step="0.01" min="1" value="779.94">
+              <span>種類</span><span id="synKind">外惑星</span>
+              <span>公転周期</span><span class="result" id="synOut">—</span>
+            </div>
+            <div class="formula" id="synF"></div>
+            <p class="sub">会合周期は、惑星が同じ見え方に戻るまでの日数。地球の1年（恒星年）は 365.256 日。</p>
+          </div>
+          <div class="panel">
+            <h4>計算2 · 最大離角から内惑星の距離を出す</h4>
+            <canvas class="cv wide" id="elCv" aria-label="最大離角の図"></canvas>
+            <label class="rng" for="elIn">最大離角 θ（太陽から一番離れて見える角度）<input id="elIn" type="range" min="5" max="85" step="0.1" value="46"></label>
+            <div class="chips" id="elChips" role="group" aria-label="惑星"></div>
+            <div class="readout"><span>θ <b id="elTh">46.0°</b></span><span>距離 a = sin θ <b id="elA">0.719</b> au</span></div>
+            <p class="sub">最大離角のとき、視線は惑星の軌道に接し、太陽–惑星–地球の角が直角になります。</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tycho -->
+    <article class="room" id="tycho">
+      <div class="room-head">
+        <div><span class="year">1588</span><h3>ティコ・ブラーエ</h3><p class="who">ティコ・ブラーエ（デンマーク）　ヴェン島の天文台で20年以上、肉眼で観測</p></div>
+        <figure class="portrait"><img src="img/s_tycho.webp" alt="ティコ・ブラーエの肖像イラスト" width="400" height="500" loading="lazy"></figure>
+      </div>
+      <div class="cols">
+        <div class="read">
+          <div><span class="k">主張</span><h4>地球は動かない。太陽は地球を回り、ほかの惑星は太陽を回る。</h4></div>
+          <p>望遠鏡が生まれる前の最高の観測者です。1572年の新星と1577年の彗星を精密に測り、天の世界も変化すること、彗星は月より遠くを通ることを示しました。地球が動く証拠（年周視差）は見つからなかったので、地球を止めたまま惑星を太陽に回らせる折衷案を考えました。</p>
+          <div class="debate">
+            <div class="ob"><span class="lb">当時の反論</span><span>この体系では火星の円と太陽の円が交わる。天体が固い透明な球に付いているなら、球同士がぶつかってしまう。</span></div>
+            <div class="re"><span class="lb">答え</span><span>1577年の彗星は惑星の間を突き抜けて飛んでいた。そもそも固い天球など存在しない。</span></div>
+            <div class="ve"><span class="lb">決着</span><span>見え方は地動説と幾何学的に同じなので、観測だけでは区別できませんでした。決め手になったのは、のちのニュートン力学です。</span></div>
+          </div>
+          <p class="note">1610年、ガリレオが金星の満ち欠けを観測してプトレマイオスの並べ方は成り立たなくなりましたが、ティコの体系はこの観測とも矛盾しませんでした。</p>
+          <div class="find"><span class="k">計算からわかること</span>右の2つの視点では、天体同士の位置関係はまったく同じです。違うのは「どれを止まっているとみなすか」だけです。</div>
+        </div>
+        <div class="figs">
+          <div class="panel">
+            <h4>同じ動きを、2つの視点で見る</h4>
+            <canvas class="cv sq" id="tyCv" aria-label="太陽中心と地球中心の比較"></canvas>
+            <div class="chips" id="tyChips" role="group" aria-label="視点"></div>
+            <p class="sub" id="tyNote"></p>
+          </div>
+          <div class="panel">
+            <h4>観測の細かさ（角度の分 ′ で比較）</h4>
+            <div class="bars">
+              <div class="bar"><span>月の見かけの直径</span><span class="t"><span class="sky" style="width:100%"></span></span><span class="v">31′</span></div>
+              <div class="bar"><span>古代の観測の誤差（目安）</span><span class="t"><span style="width:32.3%"></span></span><span class="v">≈10′</span></div>
+              <div class="bar"><span>ケプラーが無視しなかったずれ</span><span class="t"><span class="pl" style="width:25.8%"></span></span><span class="v">8′</span></div>
+              <div class="bar"><span>ティコの観測の誤差</span><span class="t"><span style="width:3.2%"></span></span><span class="v">≈1′</span></div>
+            </div>
+            <p class="sub">1′（1分角）は1°の60分の1。8′は月の直径の4分の1ほどです。</p>
+          </div>
+          <div class="panel">
+            <h4>計算 · 年周視差はどれくらい小さいか</h4>
+            <div class="chips" id="pxChips" role="group" aria-label="恒星"></div>
+            <div class="calc">
+              <label for="pxIn">恒星までの距離（光年）</label><input id="pxIn" type="number" inputmode="decimal" step="0.01" min="0.01" value="4.24">
+              <span>年周視差</span><span class="result" id="pxOut">—</span>
+            </div>
+            <div class="formula">視差（秒角 ″）＝ 3.2616 ÷ 距離（光年）　／　1′ ＝ 60″</div>
+            <p class="readout" id="pxCmp"></p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Kepler -->
+    <article class="room" id="kepler">
+      <div class="room-head">
+        <div><span class="year">1609</span><h3>ケプラー</h3><p class="who">ヨハネス・ケプラー（ドイツ）　『新天文学』1609年・『世界の調和』1619年</p></div>
+        <figure class="portrait"><img src="img/s_kepler.webp" alt="ケプラーの肖像イラスト" width="400" height="500" loading="lazy"></figure>
+      </div>
+      <div class="cols">
+        <div class="read">
+          <div><span class="k">主張</span><h4>惑星は円ではなく、太陽を焦点のひとつとする楕円を描く。</h4></div>
+          <p>ティコの火星の観測記録を受け継いだケプラーは、円の組み合わせをどう工夫しても、予測と観測が最大で8′ずれることに気づきました。それまでなら誤差で片づけられた差でしたが、彼はティコのデータを信じて円を手放しました。</p>
+          <p><b>第1法則</b>　惑星は太陽を焦点とする楕円の上を動く。<br><b>第2法則</b>　太陽と惑星を結ぶ線は、同じ時間に同じ面積を描く。<br><b>第3法則</b>　公転周期の2乗は、軌道の長半径の3乗に比例する。</p>
+          <div class="debate">
+            <div class="ob"><span class="lb">当時の反論</span><span>天の運動は完全な円であるべきだ、という2000年来の考え。同時代のガリレオでさえ、楕円軌道を受け入れませんでした。</span></div>
+            <div class="re"><span class="lb">答え</span><span>ティコの観測と8′ずれる以上、円は捨てるしかない。</span></div>
+            <div class="ve"><span class="lb">決着</span><span>「太陽から出る力が惑星を押し回す」というケプラー自身の説明は誤りでしたが、法則はニュートンが万有引力から導き、正しさが確かめられました。</span></div>
+          </div>
+          <div class="find"><span class="k">計算からわかること</span>周期（年）の2乗を距離（天文単位）の3乗で割ると、どの惑星でもほぼ1になります。6つの惑星がひとつの式でつながりました。</div>
+        </div>
+        <div class="figs">
+          <div class="panel">
+            <h4>楕円軌道と面積速度（12等分した時間）</h4>
+            <canvas class="cv wide" id="kpCv" aria-label="楕円軌道の図"></canvas>
+            <div class="chips" id="kpChips" role="group" aria-label="離心率の例"></div>
+            <label class="rng" for="kpE">離心率 e（0なら円）<input id="kpE" type="range" min="0" max="0.97" step="0.001" value="0.0934"></label>
+            <div class="readout"><span>e <b id="kpEv">0.093</b></span><span>近日点 <b id="kpQ">0.907</b></span><span>遠日点 <b id="kpQQ">1.093</b></span><span>速さの比 <b id="kpV">1.21</b> 倍</span></div>
+            <p class="sub">色分けした扇形はどれも同じ時間に動く範囲で、面積はすべて等しくなっています。距離は長半径を1とした値。</p>
+          </div>
+          <div class="panel">
+            <h4>計算 · 第3法則を確かめる</h4>
+            <div class="tblw"><table><thead><tr><th>惑星</th><th>a（au）</th><th>T（年）</th><th>T² ÷ a³</th></tr></thead><tbody id="k3Body"></tbody></table></div>
+            <div class="calc"><label for="k3In">距離 a（au）</label><input id="k3In" type="number" inputmode="decimal" step="0.01" min="0.01" value="2.77"><span>周期 T ＝ a<sup>1.5</sup></span><span class="result" id="k3Out">—</span></div>
+            <p class="sub">初期値の2.77 auは準惑星ケレスの軌道。</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Galileo -->
+    <article class="room" id="galileo">
+      <div class="room-head">
+        <div><span class="year">1610</span><h3>ガリレオ・ガリレイ</h3><p class="who">ガリレオ・ガリレイ（イタリア）　『星界の報告』1610年・『天文対話』1632年</p></div>
+        <figure class="portrait"><img src="img/s_galileo.webp" alt="ガリレオの肖像イラスト" width="400" height="500" loading="lazy"></figure>
+      </div>
+      <div class="cols">
+        <div class="read">
+          <div><span class="k">主張</span><h4>望遠鏡で空を見れば、天動説の前提は崩れる。</h4></div>
+          <p>1609年、オランダで生まれたばかりの望遠鏡を自分で改良し、夜空に向けました。月の山とクレーター、天の川が無数の星の集まりであること、そして木星の周りを回る4つの衛星。「すべては地球の周りを回る」という考えに、はっきりした反例が見つかりました。1610年の終わりには、金星が満月のような形まで満ち欠けすることも確かめます。</p>
+          <div class="debate">
+            <div class="ob"><span class="lb">当時の反論</span><span>望遠鏡に映る像は、レンズが作った錯覚ではないか。金星の満ち欠けは、ティコの体系でも説明できる。</span></div>
+            <div class="re"><span class="lb">答え</span><span>木星の衛星はほかの観測者も確認しました（ケプラーも1610年に確認）。ただ、ティコの体系への反論は、ガリレオにも決定打がありませんでした。</span></div>
+            <div class="ve"><span class="lb">決着</span><span>1633年の宗教裁判で地動説を唱えないよう命じられ、晩年を軟禁されて過ごしました。ローマ教皇庁が裁判の誤りを正式に認めたのは1992年です。</span></div>
+          </div>
+          <p class="note">ガリレオは潮の満ち引きを地球の運動の証拠だと主張しましたが、これは誤りでした。潮を起こすのは主に月の引力で、ケプラーはこちらを正しく考えていました。「それでも地球は動く」と言ったという話は、後世の創作と考えられています。</p>
+          <div class="find"><span class="k">計算からわかること</span>プトレマイオスの並べ方では、金星はいつも太陽より手前にあるので、細い三日月形にしか見えません。満月形が見えたことで、金星が太陽の向こう側へ回ることがわかりました。</div>
+        </div>
+        <div class="figs">
+          <div class="panel">
+            <h4>金星の満ち欠け · 2つのモデルで比べる</h4>
+            <canvas class="cv wide" id="vnCv" aria-label="金星の満ち欠けの比較"></canvas>
+            <div class="chips" id="vnChips" role="group" aria-label="モデル"></div>
+            <div class="readout"><span>光っている割合 <b id="vnK">—</b></span><span>見かけの大きさ <b id="vnS">—</b></span></div>
+            <p class="sub">左は上から見た配置、右は地球から望遠鏡で見た金星。大きさは見かけの直径に比例させています。</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Newton -->
+    <article class="room" id="newton">
+      <div class="room-head">
+        <div><span class="year">1687</span><h3>アイザック・ニュートン</h3><p class="who">アイザック・ニュートン（イングランド）　『自然哲学の数学的諸原理（プリンキピア）』</p></div>
+        <figure class="portrait"><img src="img/s_newton.webp" alt="ニュートンの肖像イラスト" width="400" height="500" loading="lazy"></figure>
+      </div>
+      <div class="cols">
+        <div class="read">
+          <div><span class="k">主張</span><h4>リンゴを落とす力と、月を回す力は同じものだ。</h4></div>
+          <p>すべての物体は、質量の積に比例し、距離の2乗に反比例する力で引き合う。この万有引力と運動の法則から、ケプラーの3法則がすべて計算で導けることを示しました。天の世界と地上の物理が、初めてひとつになりました。</p>
+          <div class="formula"><span>F ＝ G <i>Mm</i> ⁄ <i>r</i>²</span><span>G ＝ 6.674 × 10⁻¹¹ N·m²/kg²</span></div>
+          <div class="debate">
+            <div class="ob"><span class="lb">当時の反論</span><span>何も触れていないのに遠くから力が届くのは、正体のわからない「隠れた性質」で、説明になっていない（ライプニッツやデカルト派）。</span></div>
+            <div class="re"><span class="lb">答え</span><span>「私は仮説をつくらない」。重力の正体がわからなくても、法則が観測と合うことを示せば十分だ（1713年、第2版）。</span></div>
+            <div class="ve"><span class="lb">決着</span><span>ハレーはこの理論で彗星が1758年ごろに戻ると予言し、その年の末に実際に現れました。1846年には計算から海王星が発見されます。</span></div>
+          </div>
+          <div class="find"><span class="k">計算からわかること</span>高い山から水平に打ち出した球は、速くするほど遠くに落ち、ある速さでとうとう地面に落ちなくなります。これが人工衛星です。</div>
+        </div>
+        <div class="figs">
+          <div class="panel">
+            <h4>ニュートンの大砲 · 高度400kmから水平に打ち出す</h4>
+            <canvas class="cv sq" id="ncCv" aria-label="打ち出す速さと軌道の形"></canvas>
+            <label class="rng" for="ncV">打ち出す速さ（km/s）<input id="ncV" type="range" min="2" max="12" step="0.01" value="7.67"></label>
+            <div class="chips" id="ncChips" role="group" aria-label="速さの例"></div>
+            <div class="readout"><span>速さ <b id="ncVv">7.67 km/s</b></span><span id="ncState" class="pill">円軌道</span><span>周期 <b id="ncT">—</b></span></div>
+            <p class="sub">高度400kmは国際宇宙ステーション（ISS）とほぼ同じ高さ。ここでの円軌道の速さは約7.67 km/s、脱出速度は約10.85 km/s です。地球の重力だけを考え、空気抵抗は無視しています。</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= 2F ================= -->
+<section class="floor" id="views">
+  <div class="wrap">
+    <div class="floor-head">
+      <span class="floor-no">2F</span>
+      <div><div class="plate">PERSPECTIVA</div><h2>視点の部屋</h2><p>どこに立つかで、宇宙の模様は変わる。</p></div>
+    </div>
+    <div class="guide"><span class="mascot-svg" data-pose="starmap"></span><div class="bubble">地球に立つか、太陽に立つか。見る場所を変えるだけで、宇宙はぜんぜん違う顔になるんだ！</div></div>
+    <div class="cols">
+      <div class="panel">
+        <canvas class="cv sq" id="pvCv" aria-label="中心を選んで見る太陽系"></canvas>
+        <div class="chips" id="pvChips" role="group" aria-label="中心にする天体"></div>
+        <div class="row"><label class="rng" for="pvSpeed">時間の速さ<input id="pvSpeed" type="range" min="0.1" max="3" step="0.1" value="1"></label><label class="rng" for="pvTrail">軌跡の長さ（年）<input id="pvTrail" type="range" min="0" max="12" step="0.5" value="3"></label></div>
+        <p class="sub" id="pvNote"></p>
+      </div>
+      <div class="figs">
+        <div class="panel">
+          <h4>その星から見た太陽の大きさ</h4>
+          <canvas class="cv wide" id="sunCv" aria-label="各惑星から見た太陽の大きさの比較"></canvas>
+          <p class="sub">見かけの直径は距離に反比例します。地球から見た太陽は約0.53°（腕を伸ばした小指の幅の半分ほど）。</p>
+        </div>
+        <div class="panel">
+          <h4>あなたは、その星で何歳？</h4>
+          <div class="calc"><label for="ageIn">地球での年齢</label><input id="ageIn" type="number" inputmode="decimal" min="0" max="150" step="1" value="20"></div>
+          <div class="tblw"><table><thead><tr><th>星</th><th>1年の長さ</th><th>1日の長さ（太陽日）</th><th>その星での年齢</th></tr></thead><tbody id="ageBody"></tbody></table></div>
+          <p class="sub">1年は公転周期、1日は日の出から次の日の出まで（太陽日）。金星は自転が逆回りで、1日が117地球日もあります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3F ================= -->
+<section class="floor" id="sky">
+  <div class="wrap">
+    <div class="floor-head">
+      <span class="floor-no">3F</span>
+      <div><div class="plate">CAELUM</div><h2>星空の部屋</h2><p>いま頭上にある星空を、計算で描く。</p></div>
+    </div>
+    <div class="guide"><span class="mascot-svg" data-pose="meteor"></span><div class="bubble">あっ、流れ星！…きみの街の今夜の空は、どんなふうに見えてるかな？場所と時間を変えてみて！</div></div>
+    <div class="cols">
+      <div class="panel">
+        <div class="cal-head"><h4 id="skyTitle">今夜の星空</h4><button class="btn" id="skyNow" type="button">今にする</button></div>
+        <canvas class="cv sq" id="skyCv" aria-label="計算で描いた星座早見"></canvas>
+        <div class="row">
+          <label class="rng" for="skyLoc" style="flex:0 1 auto">場所<select id="skyLoc" class="inp"></select></label>
+          <label class="rng" for="skyDate" style="flex:0 1 auto">日付<input id="skyDate" type="date"></label>
+        </div>
+        <label class="rng" for="skyHour">時刻（現地時刻）<input id="skyHour" type="range" min="0" max="24" step="0.25" value="21"></label>
+        <div class="chips" id="skySeason" role="group" aria-label="季節の夜空"></div>
+        <div class="row"><label class="chip" style="display:inline-flex;gap:6px;align-items:center" for="skyLines"><input type="checkbox" id="skyLines" checked>星座線</label><label class="chip" style="display:inline-flex;gap:6px;align-items:center" for="skyNames"><input type="checkbox" id="skyNames" checked>名前</label><label class="chip" style="display:inline-flex;gap:6px;align-items:center" for="skyEcl"><input type="checkbox" id="skyEcl" checked>黄道</label></div>
+        <p class="sub">時刻は各地の標準時（夏時間は考えていません）。円の中心が真上（天頂）、ふちが地平線。上が北で、空を見上げる向きなので東が左になります。明るい恒星と主な星座だけを描いています。</p>
+      </div>
+      <div class="figs">
+        <div class="panel" id="seasonPanel">
+          <span class="k" id="seasonK">季節の星空</span>
+          <h4 id="seasonH" style="font-family:var(--f-display);font-size:20px"></h4>
+          <p id="seasonP" style="font-size:14px"></p>
+          <p class="sub" id="seasonTip"></p>
+        </div>
+        <div class="panel">
+          <h4>星座の物語</h4>
+          <div class="chips" id="mythChips" role="group" aria-label="物語を選ぶ"></div>
+          <div id="mythBody" style="font-size:14px;display:flex;flex-direction:column;gap:8px"></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:24px;margin-top:64px">黄道12星座と、13番目の星座</h3>
+    <p class="muted" style="max-width:44em;margin-top:8px">太陽は1年かけて星座の間を移動して見えます。この通り道が黄道です。星占いの日付は約2000年前の位置がもとになっていて、星座の境界を決めた今の天文学では、太陽はへびつかい座も通ります。</p>
+    <div class="tblw" style="margin-top:20px"><table id="zodTable"><thead><tr><th></th><th>星座</th><th>太陽がいる期間（天文学）</th><th>星占いの期間</th><th>主な星</th><th>物語</th></tr></thead><tbody></tbody></table></div>
+    <p class="sub muted" style="font-size:12.5px;margin-top:8px">期間は国際天文学連合（IAU）が定めた星座の境界（1928年採択）による目安で、年によって1日ほどずれます。自分の誕生日の星座は、誕生日のころは太陽と一緒に昼の空にあるので夜は見えません。</p>
+
+    <h3 style="font-size:24px;margin-top:64px">南半球の星空</h3>
+    <div class="tri" style="margin-top:20px" id="southCards"></div>
+    <div class="row" style="margin-top:16px"><button class="btn" id="skySouth" type="button">星座早見をシドニーの空にする</button></div>
+  </div>
+</section>
+
+<!-- ================= 4F ================= -->
+<section class="floor" id="moon">
+  <div class="wrap">
+    <div class="floor-head">
+      <span class="floor-no">4F</span>
+      <div><div class="plate">CALENDARIUM</div><h2>月と暦</h2><p>月の満ち欠けは、計算で予報できる。</p></div>
+    </div>
+    <div class="guide"><span class="mascot-svg" data-pose="moon"></span><div class="bubble">月は毎日ちょっとずつ形を変えるんだ。新月の夜が、星を見るいちばんのチャンスだよ！</div></div>
+    <div class="cols">
+      <div class="figs">
+        <div class="panel">
+          <div class="cal-head"><button class="btn" id="calPrev" type="button" aria-label="前の月">←</button><h4 id="calTitle">—</h4><button class="btn" id="calNext" type="button" aria-label="次の月">→</button></div>
+          <div class="cal" id="calGrid"></div>
+          <p class="sub">日本時間の正午の月の形。●は新月、○は満月、◐◑は上弦・下弦の日です。</p>
+        </div>
+        <div class="panel">
+          <h4>次の月の満ち欠け</h4>
+          <div class="phases" id="phaseList"></div>
+          <p class="sub">Meeusの計算法（主要項）で求めた日本時間。誤差は数分程度です。</p>
+        </div>
+      </div>
+      <div class="figs">
+        <div class="panel">
+          <h4>流星群カレンダー</h4>
+          <ul class="events" id="meteorList"></ul>
+          <p class="sub">極大の日付は毎年ほぼ同じですが、時刻は年ごとに変わります。極大日の月齢から、月明かりの影響を計算しています。</p>
+        </div>
+        <div class="panel">
+          <h4>遠い暦</h4>
+          <ul class="events">
+            <li><span class="when">2035.09.02</span><span class="what"><b>日本で皆既日食</b><span>北陸から北関東を皆既帯が通ります。本州で見られる皆既日食は148年ぶり。</span></span></li>
+            <li><span class="when">2061.07.28</span><span class="what"><b>ハレー彗星が太陽に最接近</b><span>約76年周期。前回は1986年でした。</span></span></li>
+          </ul>
+          <div class="row" style="align-items:baseline"><span class="count" id="halley">—</span><span class="muted">ハレー彗星が戻るまで</span></div>
+        </div>
+        <div class="panel">
+          <h4>二人で星を見に行くなら</h4>
+          <ul class="events">
+            <li><span class="when">月齢</span><span class="what"><b>新月の前後3日がいちばん暗い</b><span>満月の夜は明るすぎて、流星も天の川も見えにくくなります。</span></span></li>
+            <li><span class="when">15分</span><span class="what"><b>目が暗さに慣れるまで待つ</b><span>スマホの白い光を見ると振り出しに戻ります。ライトは赤いセロハンを貼って。</span></span></li>
+            <li><span class="when">寝転ぶ</span><span class="what"><b>流星は空全体を見る</b><span>放射点だけを見つめず、レジャーシートで寝転んで広く眺めるのがコツ。</span></span></li>
+            <li><span class="when">−5℃</span><span class="what"><b>体感は思ったより寒い</b><span>山の上は気温が下がり、じっとしているので冷えます。夏でも上着を一枚。</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5F ================= -->
+<section class="floor" id="study">
+  <div class="wrap">
+    <div class="floor-head">
+      <span class="floor-no">5F</span>
+      <div><div class="plate">GRADUS</div><h2>学びの階段</h2><p>覚える前に、動かそう。中学理科から大学受験まで。</p></div>
+    </div>
+    <div class="guide"><span class="mascot-svg" data-pose="think"></span><div class="bubble">むずかしそうな式でも、大丈夫。数字を入れて動かしてみたら、きっと見えてくるはずだよ。答えを開くのは、ちょっとだけ考えてからね！</div></div>
+    <div class="row" style="justify-content:space-between;margin-bottom:22px">
+      <div class="chips" id="lvChips" role="group" aria-label="レベル"></div>
+      <span class="muted" style="font-size:13px"><span class="lv j">中学</span> 中学理科　<span class="lv h">高校</span> 高校地学　<span class="lv x">受験</span> 大学受験（物理・地学）</span>
+    </div>
+    <div class="cards" id="studyCards"></div>
+  </div>
+</section>
+
+<!-- ================= 6F ================= -->
+<section class="floor" id="cosmos">
+  <div class="wrap">
+    <div class="floor-head">
+      <span class="floor-no">6F</span>
+      <div><div class="plate">CHRONOLOGIA</div><h2>宇宙の年表</h2><p>138億年を、1年のカレンダーに縮めると。</p></div>
+    </div>
+    <div class="guide"><span class="mascot-svg" data-pose="note"></span><div class="bubble">138億年を1年に縮めると、人類の歴史は大晦日の最後の数十秒なんだ。ちょっとびっくりしない？</div></div>
+    <div class="cols">
+      <ol class="ctl" id="cosmosList"></ol>
+      <div class="figs">
+        <div class="panel">
+          <h4>宇宙カレンダー · 138億年を1年に縮めると</h4>
+          <canvas class="cv tall" id="ccCv" aria-label="宇宙カレンダー"></canvas>
+          <p class="sub">1日はおよそ3780万年、1秒はおよそ437年。人類の歴史は、大晦日の最後の数十秒に収まります。</p>
+        </div>
+        <div class="panel">
+          <h4>計算 · ○○年前は宇宙カレンダーで何月何日？</h4>
+          <div class="calc"><label for="ccIn">何年前（億年）</label><input id="ccIn" type="number" inputmode="decimal" min="0" max="138" step="0.1" value="46"><span>カレンダー上</span><span class="result" id="ccOut">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7F ================= -->
+<section class="floor" id="near">
+  <div class="wrap">
+    <div class="floor-head">
+      <span class="floor-no">7F</span>
+      <div><div class="plate">VICINIA</div><h2>近くの星</h2><p>いちばん近い星でも、光で4年。</p></div>
+    </div>
+    <div class="guide"><span class="mascot-svg" data-pose="telescope"></span><div class="bubble">いちばん近い星でも、光で4年以上かかるんだ。ぼく、いつか会いに行ってみたいな。</div></div>
+    <div class="cols">
+      <div class="panel">
+        <canvas class="cv sq" id="nearCv" aria-label="太陽の近くの恒星の地図"></canvas>
+        <div class="star-legend"><span><i style="background:#9bb8ff"></i>A型（白）</span><span><i style="background:#fff1c9"></i>G型（太陽と同じ）</span><span><i style="background:#ffc58a"></i>K型（橙）</span><span><i style="background:#ff8a6b"></i>M型（赤色矮星）</span><span><i style="background:#b27bd6"></i>褐色矮星</span><span><i style="background:#e8e8f0"></i>白色矮星</span></div>
+        <p class="sub">距離を正しく、方向は赤経で配置した図です（赤緯は省略）。</p>
+      </div>
+      <div class="figs">
+        <div class="panel">
+          <div class="tblw"><table><thead><tr><th>天体</th><th>距離（光年）</th><th>種類</th><th>見える？</th></tr></thead><tbody id="nearBody"></tbody></table></div>
+        </div>
+        <div class="panel">
+          <h4>計算 · その星まで、どれくらいかかる？</h4>
+          <div class="chips" id="trChips" role="group" aria-label="乗り物"></div>
+          <div class="calc"><label for="trD">距離（光年）</label><input id="trD" type="number" inputmode="decimal" min="0.01" step="0.01" value="4.24"><span>かかる時間</span><span class="result" id="trOut">—</span></div>
+          <p class="sub" id="trNote"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 8F ================= -->
+<section class="floor" id="shelf">
+  <div class="wrap">
+    <div class="floor-head">
+      <span class="floor-no">8F</span>
+      <div><div class="plate">BIBLIOTHECA</div><h2>宇宙の本棚</h2><p>物語の中の、本物の天文学。</p></div>
+    </div>
+    <div class="guide"><span class="mascot-svg" data-pose="book"></span><div class="bubble">ぼくの宝物の本棚だよ。『チ。』はね、ぼくが星にロマンを感じたきっかけなんだ！</div></div>
+    <div class="tri" id="shelfCards"></div>
+  </div>
+</section>
+
+<!-- ================= 9F ================= -->
+<section class="floor" id="trivia">
+  <div class="wrap">
+    <div class="floor-head">
+      <span class="floor-no">9F</span>
+      <div><div class="plate">CURIOSA</div><h2>研究員の豆知識</h2><p>1分で読める、数字で驚く話。</p></div>
+    </div>
+    <div class="guide"><span class="mascot-svg" data-pose="kyoton"></span><div class="bubble">ねえ、知ってた？宇宙には、びっくりするような話がこんなにあるんだ。きみの好きな1枚、見つけてね。</div></div>
+    <div class="tri" id="triviaCards"></div>
+  </div>
+</section>
+
+<!-- ================= news ================= -->
+<section class="floor" id="news">
+  <div class="wrap">
+    <div class="floor-head">
+      <span class="floor-no" style="font-size:clamp(40px,6vw,72px)">掲示板</span>
+      <div><div class="plate">NUNTII</div><h2>研究所のタイムライン</h2><p>今夜の空と、出典を確かめた宇宙のニュース。</p></div>
+    </div>
+    <div class="tlw">
+      <div class="feed">
+        <div class="ftabs" role="tablist" aria-label="タイムラインの絞り込み" id="feedTabs"></div>
+        <div id="feed"></div>
+        <p class="feed-end">ニュースの最終更新：<span id="feedUpdated">2026年10月9日</span>　研究員Mが毎朝、新しい宇宙のニュースを確認して追加しています。</p>
+      </div>
+      <aside class="side">
+        <div class="sbox"><h3>これからの予定</h3><ul class="upc" id="upcoming"></ul></div>
+        <div class="sbox"><h3>情報元</h3><ul class="srcs">
+          <li><a href="https://www.nao.ac.jp/" target="_blank" rel="noopener"><span class="sav">天</span><span><b>国立天文台</b><small>研究成果・ほしぞら情報</small></span></a></li>
+          <li><a href="https://www.jaxa.jp/" target="_blank" rel="noopener"><span class="sav">J</span><span><b>JAXA</b><small>H3ロケット・探査機</small></span></a></li>
+          <li><a href="https://www.nasa.gov/" target="_blank" rel="noopener"><span class="sav">N</span><span><b>NASA</b><small>アルテミス計画・望遠鏡</small></span></a></li>
+          <li><a href="https://www.esa.int/" target="_blank" rel="noopener"><span class="sav">E</span><span><b>ESA</b><small>欧州の探査機と衛星</small></span></a></li>
+          <li><a href="https://www.spacex.com/" target="_blank" rel="noopener"><span class="sav">S</span><span><b>SpaceX</b><small>ファルコン9・スターシップ</small></span></a></li>
+          <li><a href="https://www.astroarts.co.jp/" target="_blank" rel="noopener"><span class="sav">A</span><span><b>アストロアーツ</b><small>日本語の天文ニュース</small></span></a></li>
+        </ul></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RF ================= -->
+<section class="floor" id="gallery">
+  <div class="wrap">
+    <div class="floor-head">
+      <span class="floor-no">RF</span>
+      <div><div class="plate">THEATRUM</div><h2>屋上 · 軌跡ギャラリー</h2><p>惑星の位置を何年分もつなぐと、模様になる。</p></div>
+    </div>
+    <div class="guide"><span class="mascot-svg" data-pose="sleepy"></span><div class="bubble">…むにゃ。星を数えてたら、模様ができちゃった。きみも好きな星で描いてみて！</div></div>
+    <div class="gal-cols">
+      <div class="panel"><canvas class="cv sq" id="gaCv" aria-label="地球から見た惑星の軌跡の模様"></canvas></div>
+      <div class="figs">
+        <div class="chips" id="gaChips" role="group" aria-label="惑星"></div>
+        <label class="rng" for="gaY">描く期間（年）<input id="gaY" type="range" min="1" max="60" step="0.5" value="8"></label>
+        <div class="readout"><span>期間 <b id="gaYv">8.0 年</b></span><span>会合周期 <b id="gaS">1.599 年</b></span><span>会合の回数 <b id="gaN">5.0 回</b></span></div>
+        <p id="gaNote" style="font-size:14px"></p>
+        <div class="row"><button class="btn solid" id="gaRec" type="button">この模様を録画モードで描く</button></div>
+        <p class="sub muted" style="font-size:13px">軌道は円として計算しています。実際の軌道はわずかに楕円なので、本物の空とは少し形が違います。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= support ================= -->
+<section class="sup" id="support">
+  <div class="wrap">
+    <div class="sup-head">
+      <div>
+        <div class="sup-plate">受付 · SUPPORT</div>
+        <h2>星をひとつ、<br>灯してください。</h2>
+        <p>天文研究所は無料です。次の展示室は、きみの応援でできていく。</p>
+      </div>
+      <figure class="mascot">
+        <div class="bubble">来てくれたんだね、ありがとう！<br>きみと見上げる今夜の星空、ぼく、すっごく楽しみなんだ。</div>
+        <span class="mascot-svg" data-pose="niko"></span>
+        <figcaption>研究員M</figcaption>
+      </figure>
+    </div>
+
+    <div class="prof">
+      <div class="pf-l">
+        <span class="k">PROFILE</span>
+        <h3>研究員M</h3>
+        <p class="pf-q"><span class="pf-badge">年齢</span>27歳　<span class="pf-badge">資格</span>星のソムリエ</p>
+        <p class="pf-say">「星のことを知るとね、夜空を見上げるたびに、世界がちょっとだけ広くなるんだ。」</p>
+      </div>
+      <ol class="pf-t">
+        <li><span class="pf-y">小学5年生</span><p><b>種子島へ宇宙留学</b>ロケットの島で暮らしたのが、宇宙を好きになったはじまり。</p></li>
+        <li><span class="pf-y">中学1年生</span><p><b>ヨットレースのために星を学ぶ</b>海の上で方角を知るため、星の勉強を本格的に始める。</p></li>
+        <li><span class="pf-y">25歳</span><p><b>「チ。」で星へのロマンに目覚める</b>2024年秋にNHKで放送が始まったアニメ「チ。―地球の運動について―」で、星を追いかけた人たちの物語に心を動かされる。</p></li>
+        <li><span class="pf-y">26歳</span><p><b>星のソムリエを取得</b>星空の楽しみ方を伝える案内人になる。</p></li>
+        <li><span class="pf-y">27歳</span><p><b>テカポ湖で星空に恋に落ちる</b>ニュージーランドのテカポ湖で、天の川が地平線まで続く夜空に出会う。</p></li>
+        <li><span class="pf-y">いま</span><p><b>天文研究所の案内役</b>星の歴史と、今夜見える空を、計算と物語でご案内中。</p></li>
+      </ol>
+    </div>
+
+    <h3 class="sup-h3">星をひとつ選んで応援する</h3>
+    <div class="tiers" role="group" aria-label="応援する星を選ぶ" id="tiers">
+      <button type="button" class="tier" data-star="ポラリス" data-yen="300" aria-expanded="false"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="6" class="glow"/><circle cx="32" cy="32" r="2.4"/></svg><b class="star-name">ポラリス</b><span class="mg">北極星 · 2.0等</span><small>旅人を導いてきた星</small><span class="yen">300 G</span></button>
+      <button type="button" class="tier" data-star="ベガ" data-yen="500" aria-expanded="false"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="12" class="glow"/><circle cx="32" cy="32" r="4.2"/></svg><b class="star-name">ベガ</b><span class="mg">織姫星 · 0.0等</span><small>夏の夜空の主役</small><span class="yen">500 G</span></button>
+      <button type="button" class="tier" data-star="シリウス" data-yen="1000" aria-expanded="false"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="20" class="glow"/><circle cx="32" cy="32" r="6"/><path d="M32 10v44M10 32h44" class="spike"/></svg><b class="star-name">シリウス</b><span class="mg">−1.46等</span><small>夜空でいちばん明るい恒星</small><span class="yen">1,000 G</span></button>
+      <button type="button" class="tier hot" data-star="太陽" data-yen="3000" aria-expanded="false"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" class="glow"/><circle cx="32" cy="32" r="11"/><path d="M32 3v10M32 51v10M3 32h10M51 32h10M11.5 11.5l7 7M45.5 45.5l7 7M11.5 52.5l7-7M45.5 18.5l7-7" class="spike"/></svg><b class="star-name">太陽</b><span class="mg">−26.7等</span><small>いちばん近い恒星</small><span class="yen">3,000 G</span></button>
+    </div>
+    <div class="paybox" id="payBox" hidden>
+      <div class="pb-head"><p id="pbTitle">—</p><button type="button" class="btn" id="pbClose">閉じる</button></div>
+      <div class="pay" id="payGrid"></div>
+      <p class="tier-note">G（ギャラクシー）は研究所の単位で、1 G ＝ 1円で換算しています。金額は目安なので、各サービスの画面で好きな額を入れてね。</p>
+    </div>
+
+    <div class="biz" id="biz">
+      <div class="biz-head">
+        <span class="k">FOR MUSEUMS &amp; COMPANIES</span>
+        <h3>科学館・企業の方へ</h3>
+        <p>計算どおりに動く図と、物語の力で、星の話を「もう一度見たくなる体験」にします。こんなことをご一緒できます。</p>
+      </div>
+      <div class="offers">
+        <div class="of"><span class="of-n">01</span><h4>展示・上映用の映像</h4><p>惑星の軌跡や、天動説と地動説の比較を、計算どおりに動く映像で。プラネタリウムの前説、館内モニター、縦型のSNS動画にも。</p><span class="of-ex">横型・縦型／15秒〜3分</span></div>
+        <div class="of"><span class="of-n">02</span><h4>体験型のWeb展示</h4><p>来館者がスマホで触れる計算機やシミュレーション。展示パネルのQRコードから、その場で開けます。</p><span class="of-ex">例：「あなたは火星で何歳？」</span></div>
+        <div class="of"><span class="of-n">03</span><h4>天文の謎解き・マーダーミステリー</h4><p>天文学の歴史を舞台にした謎解きイベント。夜の科学館イベントや、学校・企業研修にも。</p><span class="of-ex">例：ティコ・ブラーエの死の謎　<a href="https://t.co/WwcYxUkAIw" target="_blank" rel="noopener">これまでの作品 →</a></span></div>
+        <div class="of"><span class="of-n">04</span><h4>解説パネル・図版</h4><p>正確に計算した軌道図、HR図、星図を、印刷できる解像度で。やさしい解説文もセットで。</p><span class="of-ex">A1パネル・リーフレット</span></div>
+        <div class="of"><span class="of-n">05</span><h4>ノベルティ・グッズ</h4><p>惑星の軌跡の模様を使ったクリアファイル、しおり、ポスター。来館記念や企業ノベルティに。</p><span class="of-ex">金星の5枚花びら など</span></div>
+        <div class="of"><span class="of-n">06</span><h4>観望会・ワークショップ</h4><p>星のソムリエとして、観望会の進行や、家族・カップル向けの星空イベントを企画します。</p><span class="of-ex">屋内の星空トーク にも対応</span></div>
+      </div>
+      <ol class="flow"><li><b>ご相談</b><span>目的・時期・ご予算をお聞きします</span></li><li><b>ご提案</b><span>企画書とラフをお送りします</span></li><li><b>制作・納品</b><span>確認しながら仕上げます</span></li></ol>
+      <p class="biz-cta"><span class="btn" aria-disabled="true">ご相談窓口は準備中です</span></p>
+    </div>
+
+    <h3 class="sup-h3">ほかの応援のかたち</h3>
+    <div class="other">
+      <div class="oc"><span class="soon">販売中</span><h4>BOOTHショップ</h4><p>星のお話とおすすめ本のお礼カードを販売中。軌跡の模様のクリアファイルやポスターも準備しています。</p><a class="btn solid oc-go" href="https://kenkyuinm.booth.pm/" target="_blank" rel="noopener">BOOTHショップを見る</a></div>
+      <div class="oc"><span class="soon">公開中</span><h4>マーダーミステリー作品</h4><p>研究所の制作者がつくる、謎解きと物語の作品はこちら。天文学の歴史を舞台にした新作や、展示をまとめた本も準備中です。</p><a class="btn solid oc-go" href="https://t.co/WwcYxUkAIw" target="_blank" rel="noopener">マダミス作品を見る</a></div>
+      <div class="oc"><span class="soon">準備中</span><h4>星の本と道具</h4><p>展示に関係する本、星座早見盤、双眼鏡などを紹介する予定です。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="src">
+  <div class="wrap">
+    <span class="k">出典と計算の前提</span>
+    <ul>
+      <li>周転円の値：プトレマイオス『アルマゲスト』（G. J. Toomer 英訳、1984）。</li>
+      <li>コペルニクス『天球回転論』（1543）、ケプラー『新天文学』（1609）『世界の調和』（1619）、ガリレオ『星界の報告』（1610）、ニュートン『プリンキピア』（1687、第2版1713）。</li>
+      <li>惑星の軌道・周期・会合周期・質量：<a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/" target="_blank" rel="noopener">NASA Planetary Fact Sheet</a>。物理定数はCODATA 2018。天文単位はIAU 2012年の定義値 149,597,870,700 m。</li>
+      <li>月の満ち欠け：J. Meeus『Astronomical Algorithms』第49章の主要項。ΔTは69.5秒と仮定。</li>
+      <li>恒星の位置：J2000.0の赤経・赤緯（明るい星のみ）。星座の境界と太陽が通る期間はIAU（1928年採択、1930年公表）。</li>
+      <li>近くの恒星の距離：RECONSなどの値を丸めたもの。宇宙の年表の数値は現在の標準的な推定値で、研究によって幅があります。</li>
+      <li>動く図は、離心円・エカント・軌道の傾き・摂動を省いた簡略モデルです。</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><div class="guide bye"><span class="mascot-svg" data-pose="bye"></span><div class="bubble">また来てね！今夜も、いい星空を。</div></div><span>天文研究所 · 図と数字はすべて計算で描いています。　<a href="https://x.com/ken9inM" target="_blank" rel="noopener">X @ken9inM</a></span><span class="num">OBSERVATORIUM</span></div></footer>
+
+<div class="rec" id="rec" role="dialog" aria-modal="true" aria-label="録画モード" hidden>
+  <div class="rec-hint">画面に触れると操作パネルが出ます · Esc で閉じる</div>
+  <canvas id="recCv"></canvas>
+  <div class="rec-ui">
+    <label for="recAspect">比率<select id="recAspect"><option value="9:16">縦 9:16</option><option value="16:9">横 16:9</option><option value="1:1">正方形 1:1</option></select></label>
+    <label for="recPlanet">惑星<select id="recPlanet"></select></label>
+    <label for="recCap"><input type="checkbox" id="recCap" checked>文字を表示</label>
+    <button class="btn" id="recRestart" type="button">最初から</button>
+    <button class="btn" id="recFull" type="button">全画面</button>
+    <button class="btn solid" id="recClose" type="button">閉じる</button>
+  </div>
+</div>
+
+<script src="moon.js"></script>
+<script src="core.js"></script>
+<script src="mascot.js"></script>
+<script src="lines.js"></script>
+<script src="hist.js"></script>
+<script src="views.js"></script>
+<script src="sky.js"></script>
+<script src="cal.js"></script>
+<script src="studyfig.js"></script>
+<script src="study.js"></script>
+<script src="misc.js"></script>
+<script src="news.js"></script>
+<script src="fx.js"></script>
+<script src="decor.js"></script>

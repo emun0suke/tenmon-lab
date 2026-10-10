@@ -1,0 +1,123 @@
+{
+ "updated": "2026-10-10",
+ "items": [
+  {
+   "date": "2026-10-09",
+   "face": "niko",
+   "tags": [
+    "ニュース",
+    "有人探査"
+   ],
+   "text": "NASAのクルー12の4人が、地球に帰ってきたよ！メイアさん、ハサウェイさん、ESAのアドノさん、ロスコスモスのフェジャーエフさんが乗った宇宙船「フリーダム」が、日本時間10月9日午前0時34分に、ロサンゼルス沖の太平洋に着水したんだ。宇宙にいたのは237日間。みんな、おかえりなさい！",
+   "url": "https://www.space.com/space-exploration/international-space-station/spacex-crew-12-iss-astronaut-mission-return-to-earth",
+   "site": "Space.com",
+   "title": "Splashdown! Crew-12 astronauts return to Earth after nearly 8 months in space (video)",
+   "id": "2026-10-09-crew12-splashdown"
+  },
+  {
+   "date": "2026-10-09",
+   "face": "think",
+   "tags": [
+    "ニュース",
+    "発見"
+   ],
+   "text": "カシオペヤ座の方向、約7500光年先にある超新星残骸「Pa 30」を、ジェミニ北望遠鏡がくわしく観測したよ。花火のようにのびる筋は、なめらかな線じゃなくて、大きさのそろった小さなガスの塊が連なったものだったんだ。Pa 30は、1181年に日本や中国、アラブの天文学者が記録した超新星の名残だと考えられているよ。",
+   "url": "https://sorae.info/astronomy/20261009-pa-30.html",
+   "site": "sorae 宇宙へのポータルサイト",
+   "title": "花火のような超新星残骸「Pa 30」 ジェミニ北望遠鏡の観測で連なる塊状の構造が明らかに",
+   "id": "2026-10-09-pa30-knots"
+  },
+  {
+   "date": "2026-10-09",
+   "face": "howa",
+   "tags": [
+    "ニュース",
+    "発見"
+   ],
+   "text": "宇宙からほんの一瞬だけ届く電波「高速電波バースト」で、いちばん遠いものの距離がわかったよ。FRB 20240304Bは、ビッグバンから約30億年後の宇宙から来たんだ。ウェッブ宇宙望遠鏡が見つけたのは、星をさかんに作る小さな矮小銀河。とても強い磁場をもつ若い中性子星「マグネター」が出どころらしいんだって。論文は「Science」に載ったよ。",
+   "url": "https://science.nasa.gov/missions/webb/webb-measures-distance-to-farthest-fast-radio-burst-suggesting-origin/",
+   "site": "NASA Science",
+   "title": "Webb Measures Distance to Farthest Fast Radio Burst, Suggesting Origin",
+   "id": "2026-10-09-webb-farthest-frb"
+  },
+  {
+   "date": "2026-10-08",
+   "face": "howa",
+   "tags": [
+    "ニュース",
+    "ロケット"
+   ],
+   "text": "韓国のヌリ号ロケットの5回目の打ち上げが、10月7日12時25分（日本時間）に羅老（ナロ）宇宙センターで行われたよ。積んでいた15機のうち、地球観測用の小型衛星NEONSAT 5機と、キューブサット9機の合わせて14機が予定の軌道に入ったんだ。残りのキューブサット1機は、ふたが開かなくて放出できなかったよ。",
+   "url": "https://sorae.info/ssn/20261008-nuri.html",
+   "site": "sorae 宇宙へのポータルサイト",
+   "title": "韓国がヌリ号ロケット5回目の打ち上げ実施 NEONSATなど14機を軌道に投入",
+   "id": "2026-10-08-nuri-fifth-launch"
+  },
+  {
+   "date": "2026-10-07",
+   "face": "think",
+   "tags": [
+    "ニュース",
+    "発見"
+   ],
+   "text": "土星の衛星エンケラドゥスの内部の海をまねた、強いアルカリ性（pH11）の実験環境で、沖縄トラフの深海で見つかった微生物が増えて、メタンを作ったんだって。ミュンヘン大学のチームの研究で、論文は「Science Advances」に載ったよ。でも、エンケラドゥスに生命がいる証拠ではないから、そこは気をつけてね。",
+   "url": "https://sorae.info/astronomy/20261007-enceladus-ocean-simulate.html",
+   "site": "sorae 宇宙へのポータルサイト",
+   "title": "エンケラドゥスの内部海を模した強アルカリ性の実験環境で地球の微生物の一種が増殖",
+   "id": "2026-10-07-enceladus-microbe"
+  },
+  {
+   "date": "2026-10-07",
+   "face": "niko",
+   "tags": [
+    "ニュース",
+    "日本"
+   ],
+   "text": "日本の月面探査の会社ispaceが、トルコで開かれた国際宇宙会議（IAC）で、ヨーロッパの3社と覚書を結んだと発表したよ。ドイツのアリアングループとは月着陸船の開発と生産、イタリアのレオナルドとテレスパツィオとは月での通信や測位で協力を考えていくんだ。着陸船ULTRAを使うミッション3は、H3ロケットで2028年の打ち上げを見込んでいるよ。",
+   "url": "https://sorae.info/biz/20261007-ispace-arianegroup-leonardo-telespazio.html",
+   "site": "sorae 宇宙へのポータルサイト",
+   "title": "ispace、欧州3社と相次ぎ覚書 ULTRAランダーの開発や月の通信・測位で協業を検討",
+   "id": "2026-10-07-ispace-europe-mou"
+  },
+  {
+   "date": "2026-09-28",
+   "face": "niko",
+   "tags": [
+    "ニュース",
+    "ロケット"
+   ],
+   "text": "SpaceXのスターシップが、初めて地球を回る軌道に乗ったよ！第14回の飛行で、新型のスターリンク衛星26機を軌道に放出したんだ。上昇中にエンジン1基が止まったから、予定の約10時間の飛行を約3時間に短くして、ハワイ北方の太平洋に着水したよ。",
+   "url": "https://www.wunc.org/national/2026-09-28/spacexs-starship-launches-on-first-orbital-mission-from-texas",
+   "site": "wunc.org（NPR）",
+   "title": "SpaceX’s Starship launches on first orbital mission from Texas",
+   "id": "2026-09-28-starship-flight14"
+  },
+  {
+   "date": "2026-08-20",
+   "face": "howa",
+   "tags": [
+    "ニュース",
+    "ロケット",
+    "日本"
+   ],
+   "text": "日本の火星衛星探査機「MMX」の打ち上げは、10月20日 午前4時41分（H3ロケット10号機・種子島）の予定だって。火星の衛星フォボスの砂を持ち帰る、世界初の計画なんだ。帰ってくるのは2031年度の予定。打ち上げ日は天候などで変わることがあるよ。",
+   "url": "https://www.sakigake.jp/news/article/20260820CO0089/",
+   "site": "sakigake.jp（共同通信）",
+   "title": "火星衛星探査、10月20日出発 MMX、H3ロケットで",
+   "id": "2026-08-20-mmx-launch-date"
+  },
+  {
+   "date": "2026-04-10",
+   "face": "kyoton",
+   "tags": [
+    "ニュース",
+    "有人探査"
+   ],
+   "text": "アルテミス2号の4人が、月を回って地球に帰ってきたよ。4月1日に打ち上げて、約10日間で地球から約40万6771 kmまで到達。アポロ13号の記録を抜いて、人類がいちばん遠くまで行った記録を更新したんだ。乗組員はワイズマン、グローバー、コック、ハンセン（カナダ）の4人。",
+   "url": "https://news.wttw.com/2026/04/10/artemis-ii-astronauts-return-moon-splashdown-close-out-record-breaking-lunar-voyage",
+   "site": "news.wttw.com（AP）",
+   "title": "Artemis II’s record-breaking journey around the moon ends with splashdown",
+   "id": "2026-04-10-artemis2-splashdown"
+  }
+ ]
+}
